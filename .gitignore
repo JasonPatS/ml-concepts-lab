@@ -1,0 +1,16 @@
+# Secrets: never commit these
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+
+# OS and editor clutter
+.DS_Store
+.vscode/
