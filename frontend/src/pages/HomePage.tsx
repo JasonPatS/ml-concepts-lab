@@ -1,3 +1,6 @@
+import ConceptCard from '../components/ConceptCard.tsx'
+import { concepts } from '../data/concepts.ts'
+
 function HomePage() {
   return (
     <>
@@ -10,6 +13,11 @@ function HomePage() {
           Each page explains one concept and lets you experiment with a real
           model running on a Python backend.
         </p>
+      </section>
+      <section className="mt-10 grid gap-4 sm:grid-cols-2">
+        {concepts.map((concept) => (
+          <ConceptCard key={concept.slug} concept={concept} />
+        ))}
       </section>
     </>
   )
