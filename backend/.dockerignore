@@ -3,3 +3,5 @@
 **/*.pyc
 .pytest_cache/
 .env
+.ruff_cache/
+tests/
