@@ -1,9 +1,12 @@
 from fastapi import FastAPI
 
+from app.config import get_settings
 from app.routers import health
 
+settings = get_settings()
+
 app = FastAPI(
-    title="JasonPatS's ML Concepts Lab API",
+    title=settings.app_name,
     version="0.1.0",
 )
 
