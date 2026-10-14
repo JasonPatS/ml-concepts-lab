@@ -8,7 +8,7 @@ def test_health_returns_ok(client: TestClient) -> None:
     response = client.get("/api/health")
 
     assert response.status_code == 200
-    assert response.json()["status"] == "ok"
+    assert response.json()["status"] == "okay"
 
 
 def test_health_reports_the_configured_environment(client: TestClient) -> None:
