@@ -17,3 +17,8 @@ dev = [
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest]
+testpaths = ["tests"]
+pythonpath = ["."]
+strict = true
