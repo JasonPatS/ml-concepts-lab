@@ -1,1 +1,2 @@
+/* Loads Tailwind CSS, which makes its utility classes available in every component. */
 @import 'tailwindcss';

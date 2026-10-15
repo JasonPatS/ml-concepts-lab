@@ -1,30 +1,37 @@
+# Runs the backend and frontend checks on GitHub's machines. The results appear
+# at the bottom of every pull request and on the repository's Actions tab.
 name: CI
 
+# When to run: on every pull request, and on every push to main (such as a merge).
 on:
   pull_request:
   push:
     branches: [main]
 
+# The workflow only reads the code, so it gets read-only access.
 permissions:
   contents: read
 
+# The two jobs run in parallel, each on a fresh Ubuntu machine.
 jobs:
   backend:
     name: Backend checks
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: backend
+        working-directory: backend # every `run:` step starts in backend/
     steps:
       - name: Check out the code
         uses: actions/checkout@v7
 
+      # Installs uv, which then installs the Python version in .python-version.
       - name: Install uv and Python
         uses: astral-sh/setup-uv@v10.2.0
         with:
           working-directory: backend
           enable-cache: true
 
+      # --locked fails if uv.lock is out of date with pyproject.toml.
       - name: Install dependencies
         run: uv sync --locked
 
@@ -63,5 +70,6 @@ jobs:
       - name: Lint with oxlint
         run: npm run lint
 
+      # `npm run build` runs tsc (the TypeScript type-check) and then vite build.
       - name: Type-check and build
         run: npm run build

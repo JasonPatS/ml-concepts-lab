@@ -1,13 +1,19 @@
+# Local development: `docker compose up --build` starts both services together.
 services:
   backend:
     build: ./backend
+    # Replaces the image's CMD: `fastapi dev` reloads when the code changes, and
+    # --host 0.0.0.0 makes the server reachable from outside the container.
     command: ["fastapi", "dev", "app/main.py", "--host", "0.0.0.0", "--port", "8000"]
+    # Pass backend/.env in as environment variables (.dockerignore keeps the file
+    # out of the image). required: false lets Compose start when there is none.
     env_file:
       - path: ./backend/.env
         required: false
     ports:
-      - "8000:8000"
+      - "8000:8000" # your machine's port : the container's port
     volumes:
+      # Mount the code into the container so your edits are picked up live.
       - ./backend/app:/app/app
 
   frontend:
@@ -15,9 +21,12 @@ services:
     ports:
       - "5173:5173"
     environment:
+      # Inside Compose, the backend is reached by its service name, not localhost.
+      # vite.config.ts reads this to forward /api requests.
       API_PROXY_TARGET: http://backend:8000
     volumes:
       - ./frontend:/app
+      # Keep the container's own node_modules instead of your machine's copy.
       - /app/node_modules
     depends_on:
-      - backend
+      - backend # start order only: it doesn't wait for the backend to be ready

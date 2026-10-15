@@ -3,7 +3,10 @@ import { Link, NavLink } from 'react-router'
 import { concepts } from '../data/concepts.ts'
 import ApiStatus from './ApiStatus.tsx'
 
+// The top bar: site name, API status badge, and a link to every concept.
 function SiteHeader() {
+  // Whether the navigation is open on small screens. On wider screens (sm: and
+  // up) the navigation is always visible and the Menu button is hidden.
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
@@ -30,6 +33,8 @@ function SiteHeader() {
         <ul className="flex flex-col gap-1 sm:flex-row sm:gap-2">
           {concepts.map((concept) => (
             <li key={concept.slug}>
+              {/* NavLink is a Link that knows when its URL is the current page,
+                  which is how the active concept gets highlighted. */}
               <NavLink
                 to={`/concepts/${concept.slug}`}
                 onClick={() => setMenuOpen(false)}
