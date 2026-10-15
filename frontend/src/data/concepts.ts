@@ -1,11 +1,14 @@
+// The list of ML concepts. The home page cards, the header navigation and the
+// concept pages are all built from this one array, so a new concept goes here.
+
 export type ConceptCategory = 'Regression' | 'Classification' | 'Clustering'
 
 export type Concept = {
-  slug: string
+  slug: string // the URL part: /concepts/<slug>
   title: string
   category: ConceptCategory
   summary: string
-  isLive: boolean
+  isLive: boolean // false until the concept's demo is built
 }
 
 export const concepts: Concept[] = [
@@ -41,6 +44,7 @@ export const concepts: Concept[] = [
   },
 ]
 
+// Returns undefined when no concept has this slug, e.g. a mistyped URL.
 export function findConcept(slug: string | undefined): Concept | undefined {
   return concepts.find((concept) => concept.slug === slug)
 }

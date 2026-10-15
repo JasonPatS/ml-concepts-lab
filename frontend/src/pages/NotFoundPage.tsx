@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 
+// Shown for any URL the router doesn't know, and for unknown concept slugs.
 function NotFoundPage() {
   return (
     <div className="py-16 text-center">

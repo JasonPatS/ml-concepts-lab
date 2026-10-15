@@ -2,10 +2,13 @@ import { Link, useParams } from 'react-router'
 import { findConcept } from '../data/concepts.ts'
 import NotFoundPage from './NotFoundPage.tsx'
 
+// The page at /concepts/:slug, one per concept.
 function ConceptPage() {
+  // slug is the :slug part of the URL, e.g. "linear-regression".
   const { slug } = useParams()
   const concept = findConcept(slug)
 
+  // A URL like /concepts/typo matches the route but no concept.
   if (!concept) {
     return <NotFoundPage />
   }
@@ -23,6 +26,7 @@ function ConceptPage() {
         {concept.title}
       </h1>
       <p className="mt-4 text-lg text-slate-600">{concept.summary}</p>
+      {/* Placeholder until this concept's explanation and demo are built. */}
       <div className="mt-8 rounded-xl border border-dashed border-slate-300 bg-white p-8 text-center text-slate-500">
         The explanation and interactive demo for this concept arrive in a later
         phase.

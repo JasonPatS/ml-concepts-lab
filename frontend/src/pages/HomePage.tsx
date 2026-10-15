@@ -1,9 +1,11 @@
 import ConceptCard from '../components/ConceptCard.tsx'
 import { concepts } from '../data/concepts.ts'
 
+// The page at "/": an introduction, then one card per concept.
 function HomePage() {
   return (
     <>
+      {/* React moves a <title> written anywhere into the page's <head>. */}
       <title>JasonPatS's ML Concepts Lab</title>
       <section className="max-w-2xl">
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -15,6 +17,7 @@ function HomePage() {
         </p>
       </section>
       <section className="mt-10 grid gap-4 sm:grid-cols-2">
+        {/* key lets React tell the cards apart when the list changes. */}
         {concepts.map((concept) => (
           <ConceptCard key={concept.slug} concept={concept} />
         ))}
