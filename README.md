@@ -2,6 +2,11 @@
 
 [![CI](https://github.com/JasonPatS/ml-concepts-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/JasonPatS/ml-concepts-lab/actions/workflows/ci.yml)
 
+**Live site:** https://jasonpats-ml-concepts-lab.onrender.com
+
+The site runs on Render's free plan, so the first visit after a quiet spell can take
+about a minute while the backend wakes up.
+
 An interactive website that teaches machine learning concepts, one page per concept,
 each with an explanation and a live demo.
 
@@ -39,3 +44,15 @@ npm run format:check
 npm run lint
 npm run build
 ```
+
+## Deployment
+
+Both parts are hosted on [Render](https://render.com) and redeploy automatically when
+`main` changes.
+
+- **Frontend:** a Render static site built with `cd frontend && npm ci && npm run build`.
+  Two rewrite rules send `/api/*` to the backend and every other path to `index.html`,
+  so React Router handles page URLs.
+- **Backend:** a Render web service built from `backend/Dockerfile` in the Singapore
+  region, with `ENVIRONMENT=production` set in Render and `/api/health` as its health
+  check.
