@@ -10,7 +10,7 @@ function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="border-b border-slate-200 bg-white">
+    <header className="border-b border-olive-200 bg-white">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
         <Link to="/" className="font-bold tracking-tight">
           JasonPatS's ML Concepts Lab
@@ -19,7 +19,7 @@ function SiteHeader() {
           <ApiStatus />
           <button
             type="button"
-            className="rounded-md border border-slate-300 px-3 py-1 text-sm sm:hidden"
+            className="rounded-md border border-olive-300 px-3 py-1 text-sm sm:hidden"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
           >
@@ -41,8 +41,8 @@ function SiteHeader() {
                 className={({ isActive }) =>
                   `block rounded-md px-3 py-1.5 text-sm ${
                     isActive
-                      ? 'bg-indigo-50 font-medium text-indigo-700'
-                      : 'text-slate-600 hover:bg-slate-100'
+                      ? 'bg-brand-50 font-medium text-brand-700'
+                      : 'text-olive-600 hover:bg-olive-100'
                   }`
                 }
               >

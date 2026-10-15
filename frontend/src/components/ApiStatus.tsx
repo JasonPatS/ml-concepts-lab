@@ -24,7 +24,7 @@ const labels: Record<Status, string> = {
 }
 
 const colors: Record<Status, string> = {
-  checking: 'bg-slate-100 text-slate-600',
+  checking: 'bg-olive-100 text-olive-600',
   online: 'bg-emerald-100 text-emerald-800',
   offline: 'bg-rose-100 text-rose-800',
 }

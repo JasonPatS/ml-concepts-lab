@@ -1,2 +1,18 @@
 /* Loads Tailwind CSS, which makes its utility classes available in every component. */
 @import 'tailwindcss';
+
+/* Site colour theme: an olive green "brand" palette. Each line creates classes such as
+   bg-brand-600, text-brand-600 and border-brand-300. Change the colours here to re-theme the site. */
+@theme {
+  --color-brand-50: oklch(97.5% 0.02 118);
+  --color-brand-100: oklch(94.5% 0.04 118);
+  --color-brand-200: oklch(89% 0.07 118);
+  --color-brand-300: oklch(82% 0.1 118);
+  --color-brand-400: oklch(70% 0.12 118);
+  --color-brand-500: oklch(58% 0.12 118);
+  --color-brand-600: oklch(48% 0.105 118);
+  --color-brand-700: oklch(40% 0.09 118);
+  --color-brand-800: oklch(33% 0.07 118);
+  --color-brand-900: oklch(27% 0.055 118);
+  --color-brand-950: oklch(18% 0.04 118);
+}

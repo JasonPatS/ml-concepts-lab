@@ -19,10 +19,10 @@ function ConceptCard({ concept }: ConceptCardProps) {
   return (
     <Link
       to={`/concepts/${concept.slug}`}
-      className="block rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-md"
+      className="block rounded-xl border border-olive-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
     >
       <div className="flex items-center justify-between gap-2">
-        <span className="text-xs font-semibold tracking-wide text-indigo-600 uppercase">
+        <span className="text-xs font-semibold tracking-wide text-brand-600 uppercase">
           {concept.category}
         </span>
         {/* Shown until the concept's demo is built and isLive becomes true. */}
@@ -33,7 +33,7 @@ function ConceptCard({ concept }: ConceptCardProps) {
         )}
       </div>
       <h2 className="mt-2 text-lg font-semibold">{concept.title}</h2>
-      <p className="mt-1 text-sm text-slate-600">{concept.summary}</p>
+      <p className="mt-1 text-sm text-olive-600">{concept.summary}</p>
     </Link>
   )
 }

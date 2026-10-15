@@ -16,18 +16,18 @@ function ConceptPage() {
   return (
     <article className="max-w-2xl">
       <title>{`${concept.title} · JasonPatS's ML Concepts Lab`}</title>
-      <Link to="/" className="text-sm text-indigo-600 hover:underline">
+      <Link to="/" className="text-sm text-brand-600 hover:underline">
         ← All concepts
       </Link>
-      <p className="mt-6 text-xs font-semibold tracking-wide text-indigo-600 uppercase">
+      <p className="mt-6 text-xs font-semibold tracking-wide text-brand-600 uppercase">
         {concept.category}
       </p>
       <h1 className="mt-1 text-3xl font-bold tracking-tight">
         {concept.title}
       </h1>
-      <p className="mt-4 text-lg text-slate-600">{concept.summary}</p>
+      <p className="mt-4 text-lg text-olive-600">{concept.summary}</p>
       {/* Placeholder until this concept's explanation and demo are built. */}
-      <div className="mt-8 rounded-xl border border-dashed border-slate-300 bg-white p-8 text-center text-slate-500">
+      <div className="mt-8 rounded-xl border border-dashed border-olive-300 bg-white p-8 text-center text-olive-500">
         The explanation and interactive demo for this concept arrive in a later
         phase.
       </div>
